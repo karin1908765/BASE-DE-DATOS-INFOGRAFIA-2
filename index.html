@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía - Modelos Conceptuales en Lucidchart</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --university-color: #8e44ad;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        .infographic-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .university-header {
+            background: linear-gradient(135deg, var(--university-color), #6c3483);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+        }
+        
+        .university-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .university-header h2 {
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+        
+        .project-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .member {
+            background-color: var(--light-color);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .content-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .models-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .model {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .model h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .entity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .entity-table th, .entity-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .entity-table th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .entity-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .conclusions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .conclusion-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .conclusion-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .suggestions {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .suggestions h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .suggestions ul {
+            list-style-type: none;
+        }
+        
+        .suggestions li {
+            margin-bottom: 0.8rem;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .suggestions li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .reference {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: #777;
+        }
+        
+        .note {
+            background-color: #fff9e6;
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .models-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="university-header">
+            <h1>UNIVERSIDAD ANDINA DEL CUSCO</h1>
+            <h2>FACULTAD DE INGENIERÍA Y ARQUITECTURA - ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
+        </div>
+        
+        <div class="project-info">
+            <div class="info-card">
+                <h3>Información del Proyecto</h3>
+                <p><strong>Asignatura:</strong> Modelado de Base de Datos</p>
+                <p><strong>Docente:</strong> Ing. Hugo Espetia Huamanga</p>
+                <p><strong>Ciclo de Estudios:</strong> VI</p>
+                <p><strong>Unidad de Aprendizaje:</strong> Primera Unidad</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Equipo de Desarrollo: Bartolitos</h3>
+                <div class="team-members">
+                    <div class="member">
+                        <strong>Cusihuaman Concha Danny Sebastian</strong>
+                        <p>(100%)</p>
+                    </div>
+                    <div class="member">
+                        <strong>Ninancuro Carcamo Diego</strong>
+                        <p>(100%)</p>
+                    </div>
+                    <div class="member">
+                        <strong>Quispe Champi Karin Rubina</strong>
+                        <p>(100%) (SM)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>Introducción</h2>
+            <p>En este informe se analizan dos casos: el sistema de registro, envíos y entrega de paquetes de la empresa Shalom-Perú, y el sistema de entrada y salida de electrodomésticos de la empresa Electro Track, realizando la lectura correcta de sus modelos conceptuales en ambos sentidos para comprender la estructura y las interacciones entre las entidades principales.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>Modelos Conceptuales</h2>
+            <div class="models-container">
+                <div class="model">
+                    <h3>Sistema de Shalom-Perú</h3>
+                    <p>Registro, envíos y entrega de paquetes</p>
+                    
+                    <table class="entity-table">
+                        <tr>
+                            <th>Entidad</th>
+                            <th>Atributos</th>
+                            <th>Tipo</th>
+                        </tr>
+                        <tr>
+                            <td>Cliente</td>
+                            <td>IdC, tipoDocumC, nombresC, nroDocumC, paternoc, maternoc, celularC</td>
+                            <td>numero, texto, numero, texto, numero</td>
+                        </tr>
+                        <tr>
+                            <td>Comprobante</td>
+                            <td>idComp, fechaHoraComp, totalComp, OrigenComp, DestinoComp</td>
+                            <td>numero, fecha, moneda, texto, texto</td>
+                        </tr>
+                        <tr>
+                            <td>Paquete</td>
+                            <td>IdP, descripciónP, pesoP</td>
+                            <td>numero, texto, numero</td>
+                        </tr>
+                        <tr>
+                            <td>DetalleDelComprobante</td>
+                            <td>IdDet, precioPorKiloDet, subtotalDet</td>
+                            <td>numero, moneda, moneda</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="note">
+                        Nota: Hace mención a la entidad-relación en el registro de la empresa privada Shalom
+                    </div>
+                </div>
+                
+                <div class="model">
+                    <h3>Sistema de Electro Track</h3>
+                    <p>Registro de entrada y salida de electrodomésticos</p>
+                    
+                    <table class="entity-table">
+                        <tr>
+                            <th>Entidad</th>
+                            <th>Atributos</th>
+                            <th>Tipo</th>
+                        </tr>
+                        <tr>
+                            <td>Proveedor</td>
+                            <td>IdP, razonSocialP, direccionP</td>
+                            <td>numero, texto, texto</td>
+                        </tr>
+                        <tr>
+                            <td>OrdenDeCompra</td>
+                            <td>IdOrden, fechaHoraOrden, totalOrden</td>
+                            <td>numero, fecha, moneda</td>
+                        </tr>
+                        <tr>
+                            <td>detalleDeIngresoSalida</td>
+                            <td>IdDet, tipoDet, subtotalDet, cambiosDet</td>
+                            <td>numero, texto, moneda, moneda</td>
+                        </tr>
+                        <tr>
+                            <td>Cliente</td>
+                            <td>IdC, tipoDocumC, nombresC, nroDocumC, paternoc, maternoc, celularC</td>
+                            <td>numero, texto, texto, texto, texto</td>
+                        </tr>
+                        <tr>
+                            <td>Comprobante</td>
+                            <td>idComp, tipoComp, fechaHoraComp, totalComp</td>
+                            <td>numero, texto, fecha, moneda</td>
+                        </tr>
+                        <tr>
+                            <td>Electrodomestico</td>
+                            <td>IdE, nombreE, marcaE, modeloE, precioVentaE, precioCompraE</td>
+                            <td>numero, texto, texto, texto, moneda, moneda</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="note">
+                        Nota: Muestra la entidad-relación del Sistema de registro de entrada y salida de electrodomésticos "Electro Track"
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>Conclusiones y Sugerencias</h2>
+            
+            <div class="conclusions">
+                <div class="conclusion-card">
+                    <h3>Conclusiones</h3>
+                    <p>Los modelos entidad-relación analizados permiten comprender de manera clara la estructura de los sistemas, mostrando cómo interactúan las entidades principales y garantizando una base sólida para la implementación en bases de datos relacionales.</p>
+                </div>
+                
+                <div class="conclusion-card">
+                    <h3>Interpretación Bidireccional</h3>
+                    <p>La lectura en ambos sentidos (izquierda a derecha y viceversa) facilita la correcta interpretación de las cardinalidades, asegurando una visión precisa de las relaciones uno a muchos y muchos a uno.</p>
+                </div>
+                
+                <div class="conclusion-card">
+                    <h3>Importancia del Diseño</h3>
+                    <p>Tanto en el sistema de envíos de Shalom-Perú como en el de gestión de electrodomésticos de Electro Track, el diseño conceptual evidencia la importancia de un registro ordenado y confiable para el control de clientes, comprobantes y productos.</p>
+                </div>
+            </div>
+            
+            <div class="suggestions">
+                <h3>Sugerencias</h3>
+                <ul>
+                    <li>Implementar los modelos en un gestor de base de datos real, con pruebas de inserción, consulta y reportes, para validar la consistencia y eficiencia del diseño.</li>
+                    <li>Optimizar la definición de claves primarias y foráneas, así como considerar restricciones adicionales (únicos y not null) que aseguren la integridad de los datos.</li>
+                    <li>Documentar de manera continua la evolución de los sistemas, incorporando mejoras en los modelos conceptuales conforme cambian los procesos de negocio de las empresas.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="reference">
+            <p>Referencia: Lucid Software Inc. (s.f.). Lucidchart: editor de diagramas. Lucid. https://www.lucid.app/lucidchart/</p>
+            <p>Cusco – Perú, 2025</p>
+        </div>
+    </div>
+</body>
+</html>
